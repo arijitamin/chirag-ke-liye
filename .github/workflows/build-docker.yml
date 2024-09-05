@@ -27,9 +27,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
     
+    - name: Install npx
+      run: |
+        npm i -g npx
+
     - name: Build Docker image
       run: |
-        docker build --file Dockerfile --tag medusa:v1 .
+        docker buildx build --file Dockerfile --tag medusa:v1 .
 
     - name: Tag Docker image
       run: |
