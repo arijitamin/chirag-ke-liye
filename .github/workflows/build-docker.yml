@@ -26,10 +26,6 @@ jobs:
         key: ${{ runner.os }}-buildx-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-buildx-
-    
-    - name: Install npx
-      run: |
-        npm i -g npx
 
     - name: Build Docker image
       run: |
